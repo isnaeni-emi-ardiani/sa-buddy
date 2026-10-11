@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SA Buddy - Asisten System Analyst</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">SA</span>
+        <div>
+          <h1>SA Buddy</h1>
+          <p>Asisten analisis kebutuhan sistem</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button type="button" id="download-btn" class="btn-ghost" disabled>Unduh .md</button>
+        <button type="button" id="reset-btn" class="btn-ghost">Chat baru</button>
+      </div>
+    </header>
+
+    <p class="notice">
+      Hasil SA Buddy adalah <strong>draf</strong>. Tinjau dan validasi dengan stakeholder sebelum dipakai.
+    </p>
+
+    <div class="modes" id="modes" role="radiogroup" aria-label="Mode">
+      <button type="button" class="mode active" data-mode="gali" role="radio" aria-checked="true">Gali kebutuhan</button>
+      <button type="button" class="mode" data-mode="user-story" role="radio" aria-checked="false">User story</button>
+      <button type="button" class="mode" data-mode="use-case" role="radio" aria-checked="false">Use case</button>
+      <button type="button" class="mode" data-mode="brd" role="radio" aria-checked="false">Ringkas BRD</button>
+    </div>
+
+    <main id="chat-box" class="chat-box" aria-live="polite">
+      <div class="welcome" id="welcome">
+        <h2>Halo, saya SA Buddy</h2>
+        <p>Ceritakan sistem yang ingin dibuat, atau coba salah satu contoh:</p>
+        <div class="examples">
+          <button type="button" class="example">Saya mau buat aplikasi pemesanan ruang rapat, mulai dari mana?</button>
+          <button type="button" class="example">Buatkan user story untuk fitur login dan reset password.</button>
+          <button type="button" class="example">Buat use case untuk proses pengajuan cuti karyawan.</button>
+          <button type="button" class="example">Apa saja kebutuhan non-fungsional untuk aplikasi kasir?</button>
+        </div>
+      </div>
+    </main>
+
+    <form id="chat-form" class="chat-form">
+      <textarea id="user-input" rows="1" maxlength="4000" placeholder="Tulis pesan... (Enter kirim, Shift+Enter baris baru)" required></textarea>
+      <button type="submit" id="send-btn">Kirim</button>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
